@@ -3,7 +3,7 @@ import "aos/dist/aos.css"
 import { useEffect, useState } from "react";
 import Banner from "./Components/Banner/Banner";
 import Header from "./Components/Header/Header"
-
+import HeroSection from "./Components/HeroSection/HeroSection";
 function App() {
   const [orderPopUp, setOrderPopUp] = useState(false);
   const handleOrderPopUp = () => {
@@ -19,7 +19,7 @@ function App() {
         delay: 100,
 
       });
-      AOS.refresh
+      AOS.refresh();
     }, []
   );
   return (
@@ -27,6 +27,7 @@ function App() {
     <>
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">
       <Header handleOrderPopUp={handleOrderPopUp} />
+      <HeroSection handleOrderPopUp ={handleOrderPopUp} />
       <Banner />
       </div>
     </>
