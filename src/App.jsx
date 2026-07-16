@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Banner from "./Components/Banner/Banner";
 import Header from "./Components/Header/Header"
 import HeroSection from "./Components/HeroSection/HeroSection";
+import Products from "./Components/Products/Products";
+import TopProducts from "./Components/TopProducts/TopProducts";
 function App() {
   const [orderPopUp, setOrderPopUp] = useState(false);
   const handleOrderPopUp = () => {
@@ -28,6 +30,8 @@ function App() {
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">
       <Header handleOrderPopUp={handleOrderPopUp} />
       <HeroSection handleOrderPopUp ={handleOrderPopUp} />
+      <Products  />
+      <TopProducts handleOrderPopUp={handleOrderPopUp} />
       <Banner />
       </div>
     </>
