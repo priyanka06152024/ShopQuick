@@ -85,7 +85,7 @@ const Header = ({ handleOrderPopUp }) => {
                 Order
               </span>
 
-              <FaCartShopping className="text-xl cursor-pointer" />
+             <FaCartShopping className="text-xl text-black dark:text-white cursor-pointer" />
             </button>
 
             {/* Dark Mode */}
