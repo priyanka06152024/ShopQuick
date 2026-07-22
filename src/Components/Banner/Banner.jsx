@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImage from "../../assets/Images/sales.webp";
+import BannerImage from "../../assets/Images/BannerImg/sales.png";
 import { IoFastFood } from "react-icons/io5";
 import { MdPayment } from "react-icons/md";
 import { MdLocalOffer } from "react-icons/md";
@@ -16,7 +16,7 @@ const Banner = () => {
                         <img
                             src={BannerImage}
                             alt="Summer Sale"
-                            className="max-w-[600px] h-[350px] w-full mx-auto object-cover"
+                            className="max-w-[580px] h-[350px] w-full mx-auto object-cover"
                         />
                     </div>
 

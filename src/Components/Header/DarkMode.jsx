@@ -1,54 +1,44 @@
-// 
-
-import React, { useState, useEffect } from "react";
-import LightButton from "../../assets/website/light-mode-button.webp";
-import DarkButton from "../../assets/website/dark-mode-button.webp";
+import React, { useEffect, useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const DarkMode = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme")
-      ? localStorage.getItem("theme")
-      : "light"
+    localStorage.getItem("theme") || "light"
   );
 
-  const element = document.documentElement;
-
   useEffect(() => {
+    const html = document.documentElement;
+
     if (theme === "dark") {
-      element.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      html.classList.add("dark");
     } else {
-      element.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      html.classList.remove("dark");
     }
+
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  return (
-    <div className="relative">
-      {/* Light Mode Button */}
-      <img
-        src={LightButton}
-        alt="Light Button"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className={`w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300 absolute right-0 z-10 ${
-          theme === "dark"
-            ? "opacity-0 rotate-90"
-            : "opacity-100 rotate-0"
-        }`}
-      />
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
-      {/* Dark Mode Button */}
-      <img
-        src={DarkButton}
-        alt="Dark Button"
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className={`w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300 ${
-          theme === "light"
-            ? "opacity-0 rotate-90"
-            : "opacity-100 rotate-0"
+  return (
+    <button
+      onClick={toggleTheme}
+      className="relative w-16 h-9 rounded-full bg-gray-200 dark:bg-slate-700 transition-all duration-300 shadow-md cursor-pointer"
+    >
+      <div
+        className={`absolute top-1 left-1 w-7 h-7 rounded-full bg-white shadow-md flex items-center justify-center transition-all duration-300 ${
+          theme === "dark" ? "translate-x-7" : "translate-x-0"
         }`}
-      />
-    </div>
+      >
+        {theme === "light" ? (
+          <FiSun className="text-yellow-500 text-lg" />
+        ) : (
+          <FiMoon className="text-slate-700 text-lg" />
+        )}
+      </div>
+    </button>
   );
 };
 
